@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: billyy
+    provider: github
+    repository: sample-app
+  name: billyy-sample-app
+spec:
+  description: Imported application for billyy/sample-app
+  httpCloneURL: https://github.com/billyy/sample-app.git
+  org: billyy
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: sample-app
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/billyy/sample-app.git
