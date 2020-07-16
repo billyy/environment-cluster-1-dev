@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: billyy
+  repo: sample-app
+  url: https://github.com/billyy/sample-app.git
+  version: ""
+  versionURL: ""
