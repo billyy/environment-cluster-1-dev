@@ -1,35 +1,82 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/billyy/jenkins-x-boot-config
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  environmentGitPublic: false
-  project: ""
+  clusterName: cluster-1
+  devEnvApprovers:
+  - billyy
+  environmentGitOwner: billyy
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: hazel-charter-283301
   provider: gke
-  zone: ""
-gitops: true
+  registry: gcr.io
+  zone: us-east1-b
 environments:
-- key: dev
-- key: staging
-- key: production
+- ingress:
+    domain: 34.74.32.142.nip.io
+    externalDNS: false
+    namespaceSubDomain: -jx.
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: dev
+  repository: environment-cluster-1-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-cluster-1-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-cluster-1-production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.74.32.142.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
     production: false
 kaniko: true
+repository: nexus
 secretStorage: local
 storage:
+  backup:
+    enabled: false
+    url: ""
   logs:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://cluster-1-logs-2f26ba6b-d1a4-4163-9b1f-2c2095a51a8d
   reports:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://cluster-1-reports-becc488f-5267-431c-91ae-c1824b34cfba
   repository:
-    enabled: false
-    url: ""
+    enabled: true
+    url: gs://cluster-1-repository-e1c79dad-c906-43eb-8895-7cf5d33f82
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
 versionStream:
-  ref: "master"
+  ref: v1.0.534
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: lighthouse
